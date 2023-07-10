@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="h-full">Page: /Index</div>
+  <div>Component: TopBar</div>
 </template>
 
 <style scoped></style>
