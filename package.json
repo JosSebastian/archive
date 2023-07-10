@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "nuxt": "nuxt",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/supabase": "^0.3.8",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@tauri-apps/cli": "^1.4.0",
+    "@types/node": "^18.16.19",
+    "nuxt": "^3.6.2"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.4.0"
+  }
+}
