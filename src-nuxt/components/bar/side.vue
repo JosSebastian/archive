@@ -3,12 +3,13 @@
 <template>
   <div class="w-96 h-full flex flex-col gap-1">
     <div
-      class="m-0 p-1.5 border-2 rounded-md border-neutral-200 bg-neutral-100"
+      class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col gap-1"
     >
-      Component: SideBar
+      <PrimitiveButton>Home</PrimitiveButton>
+      <PrimitiveButton> Search </PrimitiveButton>
     </div>
     <div
-      class="m-0 p-1.5 border-2 rounded-md border-neutral-200 bg-neutral-100 grow"
+      class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 grow"
     >
       Component: SideBar
     </div>
