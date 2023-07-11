@@ -1,6 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
+    "withGlobalTauri": true,
     "beforeBuildCommand": "npm run nuxt generate",
     "beforeDevCommand": "npm run nuxt dev",
     "devPath": "http://localhost:3000",
