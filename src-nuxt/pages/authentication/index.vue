@@ -62,6 +62,7 @@ const sign = async () => {
           <label for="password">Password:</label>
           <PrimitiveInput
             v-model="credentials.password"
+            id="password"
             type="password"
             class="w-72 h-fit"
           />
