@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-// __________________ Types __________________ \\
 type PrimitiveButtonProps = {
   type?: HTMLButtonElement["type"];
 };
-// __________________ Props __________________ \\
 const { type = "button" } = defineProps<PrimitiveButtonProps>();
 </script>
 

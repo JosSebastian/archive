@@ -1,11 +1,8 @@
 <script lang="ts" setup>
-// __________________ Types __________________ \\
 type PrimitiveInputProps = {
   type?: HTMLInputElement["type"];
 };
-// __________________ Models __________________ \\
 const input = defineModel();
-// __________________ Props __________________ \\
 const { type } = defineProps<PrimitiveInputProps>();
 </script>
 
