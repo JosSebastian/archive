@@ -1,6 +1,5 @@
 export default defineNuxtRouteMiddleware((to, from) => {
   const user = useSupabaseUser();
-  const system = window.__TAURI__ ? true : false;
 
   if (to.path === "/authentication") {
     // If Action is Not Defined, Navigate to Home
