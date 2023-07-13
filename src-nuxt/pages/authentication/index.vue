@@ -47,7 +47,10 @@ const sign = async () => {
     <span class="bg-neutral-100 dark:bg-neutral-800">
       Page: /Authentication
     </span>
-    <div class="w-full h-full flex flex-col gap-5 justify-center items-center">
+    <div
+      v-on:keydown.enter="sign"
+      class="w-full h-full flex flex-col gap-5 justify-center items-center"
+    >
       <div class="flex flex-col gap-1.5">
         <div class="flex flex-col">
           <label for="email">Email:</label>
@@ -71,7 +74,7 @@ const sign = async () => {
       <div class="flex flex-col items-end">
         <PrimitiveButton
           v-on:click="sign"
-          class="w-72 h-fit outline justify-center items-center"
+          class="w-72 h-fit px-0 py-1.5 rounded outline justify-center items-center"
         >
           <p v-if="route.query.action === 'sign-on'" class="p-0.5">Sign On</p>
           <p v-if="route.query.action === 'sign-in'" class="p-0.5">Sign In</p>
