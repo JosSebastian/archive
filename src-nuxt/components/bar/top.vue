@@ -21,23 +21,34 @@ const sign = async () => {
 
 <template>
   <div class="p-1 flex flex-row justify-between items-center">
-    <div class="flex flex-row gap-1.5">
+    <div class="flex sm:hidden flex-row gap-1.5">
+      <PrimitiveButton
+        v-on:click="navigateTo('/')"
+        class="p-1 rounded-full"
+      >
+        <IconHome size="1.25rem" />
+      </PrimitiveButton>
+      <PrimitiveButton class="p-1 rounded-full ">
+        <IconSearch size="1.25rem" />
+      </PrimitiveButton>
+    </div>
+    <div class="hidden sm:flex flex-row gap-1.5">
       <PrimitiveButton
         v-on:click="back()"
-        class="rounded-full opacity-75 hover:opacity-100"
+        class="rounded-full"
       >
         <IconArrowLeft />
       </PrimitiveButton>
       <PrimitiveButton
         v-on:click="forward()"
-        class="rounded-full opacity-75 hover:opacity-100"
+        class="rounded-full"
       >
         <IconArrowRight />
       </PrimitiveButton>
     </div>
     <PrimitiveButton
       v-on:click="sign"
-      class="p-1 rounded-full opacity-75 hover:opacity-100"
+      class="p-1 rounded-full"
     >
       <IconAccount size="1rem" />
     </PrimitiveButton>

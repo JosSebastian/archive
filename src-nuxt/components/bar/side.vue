@@ -1,23 +1,37 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const open = ref(false);
+</script>
 
 <template>
-  <div class="w-96 h-full flex flex-col gap-1">
+  <div
+    v-bind:class="{
+      'w-72': open,
+      'w-fit': !open,
+    }"
+    class="w-72 h-full hidden sm:flex flex-col gap-1"
+  >
     <div
       class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col gap-1"
     >
       <PrimitiveButton v-on:click="navigateTo('/')" class="p-1 rounded">
         <IconHome />
-        <p>Home</p>
+        <p v-if="open">Home</p>
       </PrimitiveButton>
       <PrimitiveButton class="p-1 rounded">
         <IconSearch />
-        <p>Search</p>
+        <p v-if="open">Search</p>
       </PrimitiveButton>
     </div>
     <div
-      class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col grow"
+      class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col justify-between grow"
     >
-      Component: SideBar
+      <div></div>
+      <div class="flex justify-start">
+        <PrimitiveButton v-on:click="open = !open" class="p-1 rounded">
+          <IconArrowRight v-if="!open" />
+          <IconArrowLeft v-if="open" />
+        </PrimitiveButton>
+      </div>
     </div>
   </div>
 </template>

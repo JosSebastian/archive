@@ -802,11 +802,11 @@ module.exports = {
       150: "1.5",
     },
     screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      sm: "625px",
+      md: "750px",
+      lg: "1000px",
+      xl: "1250px",
+      "2xl": "1500px",
     },
     scrollMargin: ({ theme }) => ({
       ...theme("spacing"),
