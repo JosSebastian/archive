@@ -1,5 +1,4 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  
   const user = useSupabaseUser();
   const system = window.__TAURI__ ? true : false;
 
@@ -17,15 +16,12 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (to.path !== "/authentication") {
     if (user.value) {
     }
-    // If User is Not Signed In
+    // If User is Not Signed In, Navigate to Authentication
     else {
-      // If System, Navigate to Authentication
-      if (system) {
-        return navigateTo({
-          path: "/authentication",
-          query: { action: "sign-in" },
-        });
-      }
+      return navigateTo({
+        path: "/authentication",
+        query: { action: "sign-in" },
+      });
     }
   }
 });
