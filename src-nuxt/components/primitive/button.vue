@@ -8,7 +8,7 @@ const { type = "button" } = defineProps<PrimitiveButtonProps>();
 <template>
   <button
     v-bind:type="type"
-    class="m-0 px-2 py-1 rounded hover:outline outline-1 outline-neutral-300 dark:outline-neutral-600 focus:outline-neutral-400 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition flex flex-row items-center gap-1"
+    class="hover:outline outline-1 outline-neutral-300 dark:outline-neutral-600 focus:outline-neutral-400 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition flex flex-row items-center gap-1"
   >
     <slot />
   </button>
