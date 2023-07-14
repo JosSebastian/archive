@@ -49,42 +49,46 @@ const sign = async () => {
     </span>
     <div
       v-on:keydown.enter="sign"
-      class="w-full h-full flex flex-col gap-5 justify-center items-center"
+      class="w-full h-full flex justify-center items-center"
     >
-      <div class="flex flex-col gap-1.5">
-        <div class="flex flex-col">
-          <label for="email">Email:</label>
-          <PrimitiveInput
-            v-model="credentials.email"
-            id="email"
-            type="email"
-            class="w-72 h-fit"
-          />
+      <div class="w-72 h-fit flex flex-col gap-5">
+        <div class="flex flex-col gap-2.5">
+          <div class="flex flex-col">
+            <label for="email">Email:</label>
+            <PrimitiveInput
+              v-model="credentials.email"
+              id="email"
+              type="email"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="password">Password:</label>
+            <PrimitiveInput
+              v-model="credentials.password"
+              id="password"
+              type="password"
+            />
+          </div>
         </div>
-        <div class="flex flex-col">
-          <label for="password">Password:</label>
-          <PrimitiveInput
-            v-model="credentials.password"
-            id="password"
-            type="password"
-            class="w-72 h-fit"
-          />
-        </div>
-      </div>
-      <div class="flex flex-col items-end">
-        <PrimitiveButton
-          v-on:click="sign"
-          class="w-72 h-fit px-0 py-1.5 rounded outline justify-center items-center"
-        >
-          <p v-if="route.query.action === 'sign-on'" class="p-0.5">Sign On</p>
-          <p v-if="route.query.action === 'sign-in'" class="p-0.5">Sign In</p>
-        </PrimitiveButton>
-        <div
-          v-on:click="navigate"
-          class="opacity-50 text-sm underline cursor-pointer"
-        >
-          <p v-if="route.query.action === 'sign-on'" class="p-0.5">Sign In?</p>
-          <p v-if="route.query.action === 'sign-in'" class="p-0.5">Sign On?</p>
+        <div class="flex flex-col items-end">
+          <PrimitiveButton
+            v-on:click="sign"
+            class="w-full h-fit px-0 py-2 rounded outline justify-center items-center"
+          >
+            <p v-if="route.query.action === 'sign-on'" class="p-0.5">Sign On</p>
+            <p v-if="route.query.action === 'sign-in'" class="p-0.5">Sign In</p>
+          </PrimitiveButton>
+          <div
+            v-on:click="navigate"
+            class="opacity-50 text-sm underline cursor-pointer"
+          >
+            <p v-if="route.query.action === 'sign-on'" class="p-0.5">
+              Sign In?
+            </p>
+            <p v-if="route.query.action === 'sign-in'" class="p-0.5">
+              Sign On?
+            </p>
+          </div>
         </div>
       </div>
     </div>
