@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-type IconHomeProps = {
-  size?: SVGElement["style"]["width"] | SVGElement["style"]["height"];
-};
-const { size = "1.5rem" } = defineProps<IconHomeProps>();
+const { size = "1.5rem" } = defineProps<{
+  size?: string;
+}>();
 </script>
 
 <template>
