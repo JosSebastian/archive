@@ -30,14 +30,14 @@ const open = ref(false);
           v-on:click="navigateTo('/archive/create')"
           class="p-1 rounded"
         >
-          <IconOperatorAdd />
+          <IconAdd />
           <p v-if="open">Create</p>
         </PrimitiveButton>
       </div>
       <div class="flex justify-start">
         <PrimitiveButton v-on:click="open = !open" class="p-1 rounded">
-          <IconArrowRight v-if="!open" />
-          <IconArrowLeft v-if="open" />
+          <IconRight v-if="!open" />
+          <IconLeft v-if="open" />
         </PrimitiveButton>
       </div>
     </div>

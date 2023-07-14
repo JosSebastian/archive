@@ -37,13 +37,13 @@ const sign = async () => {
         v-on:click="back()"
         class="rounded-full"
       >
-        <IconArrowLeft />
+        <IconLeft />
       </PrimitiveButton>
       <PrimitiveButton
         v-on:click="forward()"
         class="rounded-full"
       >
-        <IconArrowRight />
+        <IconRight />
       </PrimitiveButton>
     </div>
     <PrimitiveButton
