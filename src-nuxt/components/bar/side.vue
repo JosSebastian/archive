@@ -25,7 +25,15 @@ const open = ref(false);
     <div
       class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col justify-between grow"
     >
-      <div></div>
+      <div class="flex flex-col gap-1">
+        <PrimitiveButton
+          v-on:click="navigateTo('/archive/create')"
+          class="p-1 rounded"
+        >
+          <IconOperatorAdd />
+          <p v-if="open">Create</p>
+        </PrimitiveButton>
+      </div>
       <div class="flex justify-start">
         <PrimitiveButton v-on:click="open = !open" class="p-1 rounded">
           <IconArrowRight v-if="!open" />
