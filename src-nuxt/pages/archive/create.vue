@@ -28,7 +28,7 @@ const content = ref<Content>({
   <div class="w-full h-full m-0 p-1 flex flex-col">
     <span class="w-96 h-fit"> Page: /Archive/Create </span>
     <div
-      class="overflow-auto h-full flex flex-col justify-center items-center"
+      class="overflow-auto w-full h-full flex flex-col justify-center items-center"
     ></div>
     {{ content }}
   </div>

@@ -54,7 +54,7 @@ const sign = async () => {
       <div class="flex flex-col gap-1.5">
         <div class="flex flex-col">
           <label for="email">Email:</label>
-          <PrimitiveInputEmail
+          <PrimitiveInput
             v-model="credentials.email"
             id="email"
             type="email"
@@ -63,7 +63,7 @@ const sign = async () => {
         </div>
         <div class="flex flex-col">
           <label for="password">Password:</label>
-          <PrimitiveInputPassword
+          <PrimitiveInput
             v-model="credentials.password"
             id="password"
             type="password"

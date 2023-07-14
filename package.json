@@ -12,6 +12,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@tauri-apps/cli": "^1.4.0",
     "@types/node": "^18.16.19",
+    "naive-ui": "^2.34.4",
     "nuxt": "^3.6.2"
   },
   "dependencies": {
