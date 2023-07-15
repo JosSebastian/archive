@@ -1,7 +1,22 @@
-import { create, NConfigProvider, NButton, NInput } from "naive-ui";
+import {
+  create,
+  NConfigProvider,
+  NButton,
+  NInput,
+  NInputNumber,
+  NDynamicInput,
+  NSelect,
+} from "naive-ui";
 
 const naive = create({
-  components: [NConfigProvider, NButton, NInput],
+  components: [
+    NConfigProvider,
+    NButton,
+    NInput,
+    NInputNumber,
+    NDynamicInput,
+    NSelect,
+  ],
 });
 
 export default defineNuxtPlugin((nuxtApp) => {
