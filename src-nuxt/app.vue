@@ -1,29 +1,29 @@
 <script lang="ts" setup>
-import { darkTheme } from "naive-ui";
-
-const color = useColorMode();
+import { NConfigProvider, NThemeEditor } from "naive-ui";
+defineComponent({
+  components: {
+    NThemeEditor,
+  },
+});
+const colors = useColorMode();
+const themes = useThemes();
 const theme = computed(() => {
-  return color.value === "dark" ? darkTheme : undefined;
+  if (colors.value === "light") {
+    return themes.value.light;
+  } else if (colors.value === "dark") {
+    return themes.value.dark;
+  }
 });
 </script>
 
 <template>
   <div>
-    <div>
-      {{ color.value }}
-      <select
-        v-model="color.preference as string"
-        class="border w-24 h-8 dark:bg-gray-900 dark:text-white dark:border-gray-700"
-      >
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </div>
     <NConfigProvider :theme="theme">
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
+      <NThemeEditor>
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </NThemeEditor>
     </NConfigProvider>
   </div>
 </template>
