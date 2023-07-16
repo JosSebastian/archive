@@ -3,8 +3,8 @@ const value = defineModel<string>();
 </script>
 
 <template>
-  <NInput
-    v-model:value="value"
+  <PrimitiveText
+    v-model="value"
     clearable
     type="textarea"
     placeholder="Description"

@@ -3,7 +3,7 @@ const value = defineModel<string>();
 </script>
 
 <template>
-  <NInput v-model:value="value" clearable placeholder="Title" />
+  <PrimitiveText v-model="value" clearable placeholder="Title" />
 </template>
 
 <style scoped></style>

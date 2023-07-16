@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const value = defineModel<
-  {
-    volume?: number;
-    chapter?: number;
-  }[]
->();
+import { NDynamicInput } from "naive-ui";
+type Volume = {
+  volume?: number;
+  chapter?: number;
+};
+const value = defineModel<Volume[]>();
 const volume = defineModel<number>("volume");
 const chapter = defineModel<number>("chapter");
 const onCreate = () => ({
@@ -18,8 +18,8 @@ const onCreate = () => ({
     <template #create-button-default> Volume </template>
     <template #default="{ value }">
       <div class="flex gap-1.5">
-        <NInputNumber v-model:value="value.volume" placeholder="Volume" />
-        <NInputNumber v-model:value="value.chapter" placeholder="Chapter" />
+        <PrimitiveNumber v-model="value.volume" placeholder="Volume" />
+        <PrimitiveNumber v-model="value.chapter" placeholder="Chapter" />
       </div>
     </template>
   </NDynamicInput>

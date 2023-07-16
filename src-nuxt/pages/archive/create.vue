@@ -37,6 +37,7 @@ const content = ref<Content>({
         <ArchiveNotes v-model="content.notes" />
       </div>
     </div>
+    {{ content }}
   </div>
 </template>
 

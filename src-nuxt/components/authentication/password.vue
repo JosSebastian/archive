@@ -4,8 +4,8 @@ const password = defineModel<Password>();
 </script>
 
 <template>
-  <PrimitiveInput
-    v-model:value="password"
+  <PrimitiveText
+    v-model="password"
     type="password"
     placeholder="Password"
     class="px-0 py-2"

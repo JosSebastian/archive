@@ -3,8 +3,8 @@ const value = defineModel<number>();
 </script>
 
 <template>
-  <NInputNumber
-    v-model:value="value"
+  <PrimitiveNumber
+    v-model="value"
     clearable
     :precision="1"
     :step="0.5"

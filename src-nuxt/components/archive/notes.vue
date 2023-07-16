@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { NDynamicInput } from "naive-ui";
 const value = defineModel<{}[]>();
 const onCreate = () => ({
   volume: undefined,
@@ -13,10 +14,10 @@ const onCreate = () => ({
     <template #default="{ value }">
       <div class="flex flex-col gap-1.5">
         <div class="flex gap-1.5">
-          <NInputNumber v-model:value="value.volume" placeholder="Volume" />
-          <NInputNumber v-model:value="value.chapter" placeholder="Chapter" />
+          <PrimitiveNumber v-model="value.volume" placeholder="Volume" />
+          <PrimitiveNumber v-model="value.chapter" placeholder="Chapter" />
         </div>
-        <NInput v-model:value="value.note" placeholder="Note" />
+        <PrimitiveText v-model="value.note" placeholder="Note" />
       </div>
     </template>
   </n-dynamic-input>

@@ -17,8 +17,8 @@ const statuses = [
 </script>
 
 <template>
-  <NSelect
-    v-model:value="value"
+  <PrimitiveSelect
+    v-model="value"
     :options="statuses"
     filterable
     clearable

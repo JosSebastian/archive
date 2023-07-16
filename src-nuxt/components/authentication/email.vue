@@ -4,8 +4,8 @@ const email = defineModel<Email>();
 </script>
 
 <template>
-  <PrimitiveInput
-    v-model:value="email"
+  <PrimitiveText
+    v-model="email"
     type="email"
     placeholder="Email"
     class="px-0 py-2"

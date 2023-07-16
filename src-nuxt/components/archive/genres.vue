@@ -61,8 +61,8 @@ const genres = [
 </script>
 
 <template>
-  <NSelect
-    v-model:value="value"
+  <PrimitiveSelect
+    v-model="value"
     :options="genres"
     multiple
     filterable
