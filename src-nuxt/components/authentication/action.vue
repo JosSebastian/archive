@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-type Credentials = {
-  email: string;
-  password: string;
-};
+import { Credentials } from "../../../types/authentication";
 const credentials = defineModel<Credentials>();
 
 const route = useRoute();

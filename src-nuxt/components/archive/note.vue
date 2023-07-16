@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const value = defineModel<string>();
+import { Note } from "../../../types/types";
+const value = defineModel<Note>();
 </script>
 
 <template>

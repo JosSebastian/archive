@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const value = defineModel<string>();
+import { Medium } from "../../../types/types";
+const value = defineModel<Medium>();
 const mediums = [
   {
     label: "Text",

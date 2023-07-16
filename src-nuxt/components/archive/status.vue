@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const value = defineModel<string>();
+import { Status } from "../../../types/types";
+const value = defineModel<Status>();
 const statuses = [
   {
     label: "Start",

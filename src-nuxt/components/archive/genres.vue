@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const value = defineModel<string[]>();
+import { Genres } from "../../../types/types";
+const value = defineModel<Genres>();
 const genres = [
   {
     label: "Action",

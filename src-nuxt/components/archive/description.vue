@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const value = defineModel<string>();
+import { Description } from "../../../types/types";
+const value = defineModel<Description>();
 </script>
 
 <template>

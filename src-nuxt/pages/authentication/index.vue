@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-type Credentials = {
-  email: string;
-  password: string;
-};
+import { Credentials } from "../../../types/authentication";
 const credentials = ref<Credentials>({
   email: "",
   password: "",
@@ -21,24 +18,13 @@ const sign = () => {
     <div class="w-full h-full flex justify-center items-center">
       <div v-on:keyup.enter="sign" class="w-80 flex flex-col gap-4">
         <div class="w-full flex flex-col gap-2">
-          <!-- Authentication Email  -->
-          <div>
-            <label for="email">Email:</label>
-            <AuthenticationEmail v-model="credentials.email" id="email" />
-          </div>
-          <!-- Authentication Password  -->
-          <div>
-            <label for="password">Password:</label>
-            <AuthenticationPassword
-              v-model="credentials.password"
-              id="password"
-            />
-          </div>
+          <AuthenticationEmail v-model="credentials.email" id="email" />
+          <AuthenticationPassword
+            v-model="credentials.password"
+            id="password"
+          />
         </div>
-        <!-- Authentication Action  -->
-        <div>
-          <AuthenticationAction v-model="credentials" ref="action" />
-        </div>
+        <AuthenticationAction v-model="credentials" ref="action" />
       </div>
     </div>
   </div>
