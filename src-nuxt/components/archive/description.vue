@@ -9,6 +9,7 @@ const value = defineModel<Description>();
     clearable
     type="textarea"
     placeholder="Description"
+    class="h-[122px]"
   />
 </template>
 

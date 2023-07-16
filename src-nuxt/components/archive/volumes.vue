@@ -12,7 +12,7 @@ const onCreate = () => ({
   <NDynamicInput v-model:value="value" :on-create="onCreate">
     <template #create-button-default> Volume </template>
     <template #default="{ value }">
-      <div class="flex gap-1.5">
+      <div class="flex gap-2.5">
         <PrimitiveNumber
           v-model="value.volume"
           :precision="0"

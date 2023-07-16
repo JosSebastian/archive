@@ -23,20 +23,22 @@ const content = ref<Content>({
   <div class="w-full h-full m-0 p-1 flex flex-col">
     <span class="w-96 h-fit"> Page: /Archive/Create </span>
     <div
-      class="w-full h-full p-3 flex justify-center items-start overflow-auto"
+      class="w-full h-full p-12 flex justify-center items-start lg:items-center xl:scale-110 overflow-auto"
     >
-      <div
-        class="w-96 h-fit flex flex-col justify-center items-stretch gap-2.5 transition"
-      >
-        <ArchiveMedium v-model="content.medium" />
-        <ArchiveTitle v-model="content.title" />
-        <ArchiveDescription v-model="content.description" />
-        <ArchiveGenres v-model="content.genres" />
-        <ArchiveStatus v-model="content.status" />
-        <ArchiveRating v-model="content.rating" />
-        <ArchiveVolumes v-model="content.volumes" />
-        <ArchiveNote v-model="content.note" />
-        <ArchiveNotes v-model="content.notes" />
+      <div class="flex flex-col lg:flex-row gap-2.5">
+        <div class="w-96 h-fit flex flex-col gap-2.5 transition">
+          <ArchiveMedium v-model="content.medium" />
+          <ArchiveTitle v-model="content.title" />
+          <ArchiveDescription v-model="content.description" />
+          <ArchiveGenres v-model="content.genres" />
+          <ArchiveStatus v-model="content.status" />
+          <ArchiveRating v-model="content.rating" />
+        </div>
+        <div class="w-96 h-fit flex flex-col gap-2.5 transition">
+          <ArchiveVolumes v-model="content.volumes" />
+          <ArchiveNote v-model="content.note" />
+          <ArchiveNotes v-model="content.notes" />
+        </div>
       </div>
     </div>
     {{ content }}

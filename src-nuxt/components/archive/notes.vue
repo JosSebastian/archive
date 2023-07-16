@@ -15,8 +15,8 @@ const create = () => ({
   <NDynamicInput v-model:value="value" :on-create="create">
     <template #create-button-default> Note </template>
     <template #default="{ value }">
-      <div class="flex flex-col gap-1.5">
-        <div class="flex gap-1.5">
+      <div class="flex flex-col gap-2.5">
+        <div class="flex gap-2.5">
           <PrimitiveNumber
             v-model="value.volume.volume"
             :precision="0"
