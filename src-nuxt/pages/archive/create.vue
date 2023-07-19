@@ -20,12 +20,14 @@ const content = ref<Content>({
 </script>
 
 <template>
-  <div class="w-full h-full m-0 p-1 flex flex-col">
-    <span class="w-96 h-fit"> Page: /Archive/Create </span>
+  <div class="w-full h-full flex flex-col">
+    <span class="w-96 h-fit">
+      <p>Page: /Archive/Create</p>
+    </span>
     <div
-      class="w-full h-full p-12 flex justify-center items-start lg:items-center xl:scale-110 overflow-auto"
+      class="h-full my-1 py-3 flex flex-col justify-start items-center gap-3 overflow-auto transition"
     >
-      <div class="flex flex-col lg:flex-row gap-2.5">
+      <div class="border-none flex flex-col items-center gap-2.5">
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
           <ArchiveMedium v-model="content.medium" />
           <ArchiveTitle v-model="content.title" />
@@ -39,9 +41,9 @@ const content = ref<Content>({
           <ArchiveNote v-model="content.note" />
           <ArchiveNotes v-model="content.notes" />
         </div>
+        <ArchiveCreate />
       </div>
     </div>
-    {{ content }}
   </div>
 </template>
 
