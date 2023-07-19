@@ -10,9 +10,7 @@ const open = ref(false);
     }"
     class="w-72 h-full hidden sm:flex flex-col gap-1"
   >
-    <div
-      class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col gap-1"
-    >
+    <PrimitiveContainer class="m-0 p-1.5 rounded-md border flex flex-col gap-1">
       <PrimitiveButton v-on:click="navigateTo('/')" class="p-1 rounded">
         <IconHome />
         <p v-if="open">Home</p>
@@ -21,9 +19,9 @@ const open = ref(false);
         <IconSearch />
         <p v-if="open">Search</p>
       </PrimitiveButton>
-    </div>
-    <div
-      class="m-0 p-1.5 rounded-md border border-neutral-300 dark:border-neutral-600 bg-neutral-100 dark:bg-neutral-800 flex flex-col justify-between grow"
+    </PrimitiveContainer>
+    <PrimitiveContainer
+      class="m-0 p-1.5 rounded-md border flex flex-col justify-between grow"
     >
       <div class="flex flex-col gap-1">
         <PrimitiveButton
@@ -40,7 +38,7 @@ const open = ref(false);
           <IconLeft v-if="open" />
         </PrimitiveButton>
       </div>
-    </div>
+    </PrimitiveContainer>
   </div>
 </template>
 
