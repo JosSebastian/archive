@@ -21,36 +21,28 @@ const sign = async () => {
 
 <template>
   <div class="flex flex-row justify-between items-center">
-    <div class="flex sm:hidden flex-row gap-1.5">
-      <PrimitiveButton
-        v-on:click="navigateTo('/')"
-        class="p-1 rounded-full"
-      >
-        <IconHome size="1.25rem" />
-      </PrimitiveButton>
-      <PrimitiveButton class="p-1 rounded-full ">
-        <IconSearch size="1.25rem" />
-      </PrimitiveButton>
-    </div>
-    <div class="hidden sm:flex flex-row gap-1.5">
-      <PrimitiveButton
-        v-on:click="back()"
-        class="rounded-full"
-      >
-        <IconLeft />
+    <div class="flex flex-row gap-1.5">
+      <PrimitiveButton v-on:click="back()" class="hidden md:flex rounded-full">
+        <Icon name="material-symbols:arrow-left-rounded" size="1.5rem" />
       </PrimitiveButton>
       <PrimitiveButton
         v-on:click="forward()"
-        class="rounded-full"
+        class="hidden md:flex rounded-full"
       >
-        <IconRight />
+        <Icon name="material-symbols:arrow-right-rounded" size="1.5rem" />
+      </PrimitiveButton>
+      <PrimitiveButton
+        v-on:click="navigateTo('/')"
+        class="p-1 flex md:hidden rounded-full"
+      >
+        <Icon name="material-symbols:home-outline-rounded" size="1.5rem" />
+      </PrimitiveButton>
+      <PrimitiveButton class="p-1 flex md:hidden rounded-full">
+        <Icon name="material-symbols:search-rounded" size="1.5rem" />
       </PrimitiveButton>
     </div>
-    <PrimitiveButton
-      v-on:click="sign"
-      class="p-1 rounded-full"
-    >
-      <IconAccount size="1rem" />
+    <PrimitiveButton v-on:click="sign" class="p-1 rounded-full">
+      <Icon name="material-symbols:person-outline-rounded" size="1.5rem" />
     </PrimitiveButton>
   </div>
 </template>

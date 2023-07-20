@@ -12,11 +12,11 @@ const open = ref(false);
   >
     <PrimitiveContainer class="m-0 p-1.5 rounded-md border flex flex-col gap-1">
       <PrimitiveButton v-on:click="navigateTo('/')" class="p-1 rounded">
-        <IconHome />
+        <Icon name="material-symbols:home-outline-rounded" size="1.5rem" />
         <p v-if="open">Home</p>
       </PrimitiveButton>
       <PrimitiveButton class="p-1 rounded">
-        <IconSearch />
+        <Icon name="material-symbols:search-rounded" size="1.5rem" />
         <p v-if="open">Search</p>
       </PrimitiveButton>
     </PrimitiveContainer>
@@ -28,14 +28,22 @@ const open = ref(false);
           v-on:click="navigateTo('/archive/create')"
           class="p-1 rounded"
         >
-          <IconAdd />
+          <Icon name="material-symbols:add-rounded" size="1.5rem" />
           <p v-if="open">Create</p>
         </PrimitiveButton>
       </div>
       <div class="flex justify-start">
         <PrimitiveButton v-on:click="open = !open" class="p-1 rounded">
-          <IconRight v-if="!open" />
-          <IconLeft v-if="open" />
+          <Icon
+            v-if="!open"
+            name="material-symbols:arrow-right-rounded"
+            size="1.5rem"
+          />
+          <Icon
+            v-if="open"
+            name="material-symbols:arrow-left-rounded"
+            size="1.5rem"
+          />
         </PrimitiveButton>
       </div>
     </PrimitiveContainer>
