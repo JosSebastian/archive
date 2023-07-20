@@ -8,9 +8,9 @@ const content = useContent();
       <p>Page: /Archive/Create</p>
     </span>
     <div
-      class="h-full my-1 py-3 flex flex-col justify-start items-center gap-3 overflow-auto transition"
+      class="h-full my-1 py-3 flex justify-center lg:items-center overflow-auto lg:overflow-hidden transition"
     >
-      <div class="border-none flex flex-col items-center gap-2.5">
+      <div class="flex flex-col lg:flex-row gap-2.5">
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
           <ArchiveMedium />
           <ArchiveTitle />
@@ -20,11 +20,14 @@ const content = useContent();
           <ArchiveRating />
         </div>
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
-          <ArchiveVolumes />
+          <div class="lg:max-h-[122px] overflow-auto">
+            <ArchiveVolumes />
+          </div>
           <ArchiveNote />
-          <ArchiveNotes />
+          <div class="lg:max-h-[166px] overflow-auto">
+            <ArchiveNotes />
+          </div>
         </div>
-        <ArchiveCreate v-on:click="useCreateContent()" />
       </div>
     </div>
     {{ content }}

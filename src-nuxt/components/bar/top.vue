@@ -20,7 +20,7 @@ const sign = async () => {
 </script>
 
 <template>
-  <div class="p-1 flex flex-row justify-between items-center">
+  <div class="flex flex-row justify-between items-center">
     <div class="flex sm:hidden flex-row gap-1.5">
       <PrimitiveButton
         v-on:click="navigateTo('/')"
