@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { Status } from "../../../types/types";
-const value = defineModel<Status>();
+const content = useContent();
 const statuses = [
   {
     label: "Start",
@@ -19,7 +18,7 @@ const statuses = [
 
 <template>
   <PrimitiveSelect
-    v-model="value"
+    v-model="content.status"
     :options="statuses"
     filterable
     clearable

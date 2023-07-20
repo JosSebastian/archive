@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { Volumes } from "../../../types/types";
 import { NDynamicInput } from "naive-ui";
-const value = defineModel<Volumes>();
+const content = useContent();
 const onCreate = () => ({
   volume: undefined,
   chapter: undefined,
@@ -9,7 +8,7 @@ const onCreate = () => ({
 </script>
 
 <template>
-  <NDynamicInput v-model:value="value" :on-create="onCreate">
+  <NDynamicInput v-model:value="content.volumes" :on-create="onCreate">
     <template #create-button-default> Volume </template>
     <template #default="{ value }">
       <div class="flex gap-2.5">

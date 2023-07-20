@@ -1,7 +1,6 @@
 <script lang="ts" setup>
-import { Notes } from "../../../types/types";
 import { NDynamicInput } from "naive-ui";
-const value = defineModel<Notes>();
+const content = useContent();
 const create = () => ({
   volume: {
     volume: undefined,
@@ -12,7 +11,7 @@ const create = () => ({
 </script>
 
 <template>
-  <NDynamicInput v-model:value="value" :on-create="create">
+  <NDynamicInput v-model:value="content.notes" :on-create="create">
     <template #create-button-default> Note </template>
     <template #default="{ value }">
       <div class="flex flex-col gap-2.5">

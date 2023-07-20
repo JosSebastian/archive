@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-import { Description } from "../../../types/types";
-const value = defineModel<Description>();
+const content = useContent();
 </script>
 
 <template>
   <PrimitiveText
-    v-model="value"
+    v-model="content.description"
     clearable
     type="textarea"
     placeholder="Description"

@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { Note } from "../../../types/types";
-const value = defineModel<Note>();
+const content = useContent();
 </script>
 
 <template>
-  <PrimitiveText v-model="value" clearable placeholder="Note" />
+  <PrimitiveText v-model="content.note" clearable placeholder="Note" />
 </template>
 
 <style scoped></style>

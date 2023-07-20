@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { Genres } from "../../../types/types";
-const value = defineModel<Genres>();
+const content = useContent();
 const genres = [
   {
     label: "Action",
@@ -63,7 +62,7 @@ const genres = [
 
 <template>
   <PrimitiveSelect
-    v-model="value"
+    v-model="content.genres"
     :options="genres"
     multiple
     filterable

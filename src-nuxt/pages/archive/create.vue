@@ -1,22 +1,5 @@
 <script lang="ts" setup>
-import { Content } from "../../../types/types";
-const content = ref<Content>({
-  id: undefined,
-
-  medium: undefined,
-  title: undefined,
-  description: undefined,
-  genres: undefined,
-  status: undefined,
-  rating: undefined,
-
-  volumes: undefined,
-
-  note: undefined,
-  notes: undefined,
-
-  time: undefined,
-});
+const content = useContent();
 </script>
 
 <template>
@@ -29,21 +12,22 @@ const content = ref<Content>({
     >
       <div class="border-none flex flex-col items-center gap-2.5">
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
-          <ArchiveMedium v-model="content.medium" />
-          <ArchiveTitle v-model="content.title" />
-          <ArchiveDescription v-model="content.description" />
-          <ArchiveGenres v-model="content.genres" />
-          <ArchiveStatus v-model="content.status" />
-          <ArchiveRating v-model="content.rating" />
+          <ArchiveMedium />
+          <ArchiveTitle />
+          <ArchiveDescription />
+          <ArchiveGenres />
+          <ArchiveStatus />
+          <ArchiveRating />
         </div>
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
-          <ArchiveVolumes v-model="content.volumes" />
-          <ArchiveNote v-model="content.note" />
-          <ArchiveNotes v-model="content.notes" />
+          <ArchiveVolumes />
+          <ArchiveNote />
+          <ArchiveNotes />
         </div>
-        <ArchiveCreate />
+        <ArchiveCreate v-on:click="useCreateContent()" />
       </div>
     </div>
+    {{ content }}
   </div>
 </template>
 

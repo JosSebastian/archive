@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { Medium } from "../../../types/types";
-const value = defineModel<Medium>();
+const content = useContent();
 const mediums = [
   {
     label: "Text",
@@ -19,7 +18,7 @@ const mediums = [
 
 <template>
   <PrimitiveSelect
-    v-model="value"
+    v-model="content.medium"
     :options="mediums"
     filterable
     clearable

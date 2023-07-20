@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-import { Rating } from "../../../types/types";
-const value = defineModel<Rating>();
+const content = useContent();
 </script>
 
 <template>
   <PrimitiveNumber
-    v-model="value"
+    v-model="content.rating"
     :precision="1"
     :step="0.5"
     clearable

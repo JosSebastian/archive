@@ -41,4 +41,6 @@ export interface Content {
   notes?: Notes;
 
   time?: Time;
+
+  uid?: string;
 }
