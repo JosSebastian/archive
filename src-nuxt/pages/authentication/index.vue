@@ -14,7 +14,6 @@ const sign = () => {
 <template>
   <div class="w-full h-full m-0 p-1 flex flex-col">
     <span class="w-96 h-fit"> Page: /Authentication </span>
-    {{ credentials }}
     <div class="w-full h-full flex justify-center items-center">
       <div v-on:keyup.enter="sign" class="w-80 flex flex-col gap-4">
         <div class="w-full flex flex-col gap-2">

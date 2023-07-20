@@ -22,22 +22,22 @@ const sign = async () => {
 <template>
   <div class="flex flex-row justify-between items-center">
     <div class="flex flex-row gap-1.5">
-      <PrimitiveButton v-on:click="back()" class="hidden md:flex rounded-full">
+      <PrimitiveButton v-on:click="back()" class="hidden sm:flex rounded-full">
         <Icon name="material-symbols:arrow-left-rounded" size="1.5rem" />
       </PrimitiveButton>
       <PrimitiveButton
         v-on:click="forward()"
-        class="hidden md:flex rounded-full"
+        class="hidden sm:flex rounded-full"
       >
         <Icon name="material-symbols:arrow-right-rounded" size="1.5rem" />
       </PrimitiveButton>
       <PrimitiveButton
         v-on:click="navigateTo('/')"
-        class="p-1 flex md:hidden rounded-full"
+        class="p-1 flex sm:hidden rounded-full"
       >
         <Icon name="material-symbols:home-outline-rounded" size="1.5rem" />
       </PrimitiveButton>
-      <PrimitiveButton class="p-1 flex md:hidden rounded-full">
+      <PrimitiveButton class="p-1 flex sm:hidden rounded-full">
         <Icon name="material-symbols:search-rounded" size="1.5rem" />
       </PrimitiveButton>
     </div>
