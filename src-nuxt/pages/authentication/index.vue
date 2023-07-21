@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-import { Credentials } from "../../../types/authentication";
-const credentials = ref<Credentials>({
-  email: "",
-  password: "",
-});
-
-const action = ref(null);
-const sign = () => {
-  action.value.sign();
+const route = useRoute();
+const sign = async () => {
+  if (route.query.action == "sign-on") {
+    await useSignOn();
+  } else if (route.query.action == "sign-in") {
+    await useSignIn();
+  }
 };
 </script>
 
@@ -17,13 +15,10 @@ const sign = () => {
     <div class="w-full h-full flex justify-center items-center">
       <div v-on:keyup.enter="sign" class="w-80 flex flex-col gap-4">
         <div class="w-full flex flex-col gap-2">
-          <AuthenticationEmail v-model="credentials.email" id="email" />
-          <AuthenticationPassword
-            v-model="credentials.password"
-            id="password"
-          />
+          <AuthenticationEmail />
+          <AuthenticationPassword />
         </div>
-        <AuthenticationAction v-model="credentials" ref="action" />
+        <AuthenticationAction v-on:sign="sign" />
       </div>
     </div>
   </div>

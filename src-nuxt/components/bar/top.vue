@@ -5,17 +5,10 @@ const back = () => {
 const forward = () => {
   window.history.forward();
 };
-const client = useSupabaseClient();
+
 const sign = async () => {
-  const { error } = await client.auth.signOut();
-  if (error) {
-    console.error(error);
-  } else {
-    navigateTo({
-      path: "/authentication",
-      query: { action: "sign-in" },
-    });
-  }
+  console.log("sign");
+  await useSignOut();
 };
 </script>
 

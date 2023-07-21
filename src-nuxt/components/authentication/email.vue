@@ -1,13 +1,12 @@
 <script lang="ts" setup>
-import { Email } from "../../../types/authentication";
-const email = defineModel<Email>();
+const credentials = useCredentials();
 </script>
 
 <template>
   <div>
     <label for="email">Email:</label>
     <PrimitiveText
-      v-model="email"
+      v-model="credentials.email"
       type="email"
       placeholder="Email"
       class="px-0 py-2"

@@ -1,13 +1,12 @@
 <script lang="ts" setup>
-import { Password } from "../../../types/authentication";
-const password = defineModel<Password>();
+const credentials = useCredentials();
 </script>
 
 <template>
   <div>
     <label for="password">Password:</label>
     <PrimitiveText
-      v-model="password"
+      v-model="credentials.password"
       type="password"
       placeholder="Password"
       class="px-0 py-2"

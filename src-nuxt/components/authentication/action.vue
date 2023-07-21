@@ -1,61 +1,26 @@
 <script lang="ts" setup>
-import { Credentials } from "../../../types/authentication";
-const credentials = defineModel<Credentials>();
 
 const route = useRoute();
-const router = useRouter();
 const navigate = () => {
   if (route.query.action == "sign-on") {
-    router.push({ path: "/authentication", query: { action: "sign-in" } });
+    navigateTo({
+      path: "/authentication",
+      query: { action: "sign-in" },
+    });
   } else if (route.query.action == "sign-in") {
-    router.push({ path: "/authentication", query: { action: "sign-on" } });
+    navigateTo({
+      path: "/authentication",
+      query: { action: "sign-on" },
+    });
   }
 };
 
-const client = useSupabaseClient();
-const sign = async () => {
-  if (credentials.value == undefined) {
-    return;
-  } else if (
-    credentials.value.email == undefined ||
-    credentials.value.email == ""
-  ) {
-    return;
-  } else if (
-    credentials.value.password == undefined ||
-    credentials.value.password == ""
-  ) {
-    return;
-  }
-
-  if (route.query.action == "sign-on") {
-    const { data, error } = await client.auth.signUp({
-      email: credentials.value.email,
-      password: credentials.value.password,
-    });
-    if (error) {
-      console.log(error);
-    } else {
-      navigate();
-    }
-  } else if (route.query.action == "sign-in") {
-    const { data, error } = await client.auth.signInWithPassword({
-      email: credentials.value.email,
-      password: credentials.value.password,
-    });
-    if (error) {
-      console.log(error);
-    } else {
-      navigateTo("/");
-    }
-  }
-};
-defineExpose({ sign });
+const emits = defineEmits(["sign"]);
 </script>
 
 <template>
   <div class="w-full flex flex-col items-end">
-    <PrimitiveButton v-on:click="sign" class="w-full h-12">
+    <PrimitiveButton v-on:click="emits('sign')" class="w-full h-12">
       <p v-if="route.query.action === 'sign-on'">Sign On</p>
       <p v-if="route.query.action === 'sign-in'">Sign In</p>
     </PrimitiveButton>
