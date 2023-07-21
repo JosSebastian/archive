@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const content = useContent();
+const content = useArchiveContent();
 </script>
 
 <template>

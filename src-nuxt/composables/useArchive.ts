@@ -1,12 +1,28 @@
 import { Content } from "../../types/types";
 
-export const useContent = () => {
+export const useArchive = async () => {
+  const client = useSupabaseClient();
+  const user = useSupabaseUser();
+
+  const { data, error } = await client
+    .from("content")
+    .select()
+    .eq("uid", user.value?.id);
+
+  if (error) {
+    console.log(error);
+  } else {
+    return data;
+  }
+};
+
+export const useArchiveContent = () => {
   const content = useState("content", (): Content => ({}));
   return content;
 };
 
-const useValidateContent = () => {
-  const content = useContent();
+const useArchiveValidate = () => {
+  const content = useArchiveContent();
 
   // Validate Medium
   if (content.value.medium === null || content.value.medium === undefined) {
@@ -118,53 +134,6 @@ const useValidateContent = () => {
   }
 
   // Validate Notes
-  // if (content.value.notes === null || content.value.notes === undefined) {
-  //   console.log("Notes is Null or Undefined");
-  // } else {
-  //   if (content.value.notes.length === 0) {
-  //     console.log("Notes is Empty");
-  //   } else {
-  //     content.value.notes.forEach((note) => {
-  //       if (note.volume === null || note.volume === undefined) {
-  //         console.log("Volume is Null or Undefined");
-  //         return false;
-  //       } else {
-  //         if (note.volume.volume === null || note.volume.volume === undefined) {
-  //           console.log("Volume is Null or Undefined");
-  //           return false;
-  //         } else {
-  //           if (note.volume.volume < 0) {
-  //             console.log("Volume is Empty");
-  //             return false;
-  //           }
-  //         }
-  //         if (
-  //           note.volume.chapter === null ||
-  //           note.volume.chapter === undefined
-  //         ) {
-  //           console.log("Chapter is Null or Undefined");
-  //           return false;
-  //         } else {
-  //           if (note.volume.chapter < 0) {
-  //             console.log("Chapter is Empty");
-  //             return false;
-  //           }
-  //         }
-  //       }
-  //       if (note.note === null || note.note === undefined) {
-  //         console.log("Note is Null or Undefined");
-  //         return false;
-  //       } else {
-  //         if (note.note === "") {
-  //           console.log("Note is Empty");
-  //           return false;
-  //         }
-  //       }
-  //     });
-  //   }
-  // }
-
-  // Validate Notes
   if (content.value.notes === null || content.value.notes === undefined) {
     console.log("Notes is Null or Undefined");
   } else {
@@ -225,9 +194,9 @@ const useValidateContent = () => {
   return true;
 };
 
-export const useCreateContent = async () => {
-  const content = useContent();
-  const valid = useValidateContent();
+export const useArchiveCreate = async () => {
+  const content = useArchiveContent();
+  const valid = useArchiveValidate();
 
   content.value.time = {
     first: new Date().toISOString(),
@@ -255,6 +224,7 @@ export const useCreateContent = async () => {
       console.log(error);
     } else {
       console.log(data);
+      navigateTo("/");
     }
   }
 };

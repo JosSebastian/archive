@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { NDynamicInput } from "naive-ui";
-const content = useContent();
+const content = useArchiveContent();
 const create = () => ({
   volume: {
     volume: undefined,
