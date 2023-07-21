@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 const mediums = [
   {
     label: "Text",
@@ -18,7 +18,7 @@ const mediums = [
 
 <template>
   <PrimitiveSelect
-    v-model="content.medium"
+    v-model="record.medium"
     :options="mediums"
     filterable
     clearable

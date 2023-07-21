@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { NDynamicInput } from "naive-ui";
-const content = useArchiveContent();
+const record = useArchiveRecord();
 const onCreate = () => ({
   volume: undefined,
   chapter: undefined,
@@ -8,7 +8,7 @@ const onCreate = () => ({
 </script>
 
 <template>
-  <NDynamicInput v-model:value="content.volumes" :on-create="onCreate">
+  <NDynamicInput v-model:value="record.volumes" :on-create="onCreate">
     <template #create-button-default> Volume </template>
     <template #default="{ value }">
       <div class="flex gap-2.5">

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 </script>
 
 <template>
   <PrimitiveNumber
-    v-model="content.rating"
+    v-model="record.rating"
     :precision="1"
     :step="0.5"
     clearable

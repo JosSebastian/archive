@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 </script>
 
 <template>
   <PrimitiveText
-    v-model="content.description"
+    v-model="record.description"
     clearable
     type="textarea"
     placeholder="Description"

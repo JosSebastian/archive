@@ -1,46 +1,49 @@
-import { Content } from "../../types/types";
+import { Record, Records } from "../../types/types";
 
-export const useArchive = async () => {
+export const useArchiveRecords = async () => {
+  const archive = useState("archive", (): Records => []);
+
   const client = useSupabaseClient();
   const user = useSupabaseUser();
 
   const { data, error } = await client
-    .from("content")
-    .select()
+    .from("records")
+    .select("*")
     .eq("uid", user.value?.id);
-
   if (error) {
     console.log(error);
   } else {
-    return data;
+    archive.value = data;
   }
+
+  return archive;
 };
 
-export const useArchiveContent = () => {
-  const content = useState("content", (): Content => ({}));
-  return content;
+export const useArchiveRecord = () => {
+  const record = useState("record", (): Record => ({}));
+  return record;
 };
 
 const useArchiveValidate = () => {
-  const content = useArchiveContent();
+  const record = useArchiveRecord();
 
   // Validate Medium
-  if (content.value.medium === null || content.value.medium === undefined) {
+  if (record.value.medium === null || record.value.medium === undefined) {
     console.log("Medium is Null or Undefined");
     return false;
   } else {
-    if (content.value.medium === "") {
+    if (record.value.medium === "") {
       console.log("Medium is Empty");
       return false;
     }
   }
 
   // Validate Title
-  if (content.value.title === null || content.value.title === undefined) {
+  if (record.value.title === null || record.value.title === undefined) {
     console.log("Title is Null or Undefined");
     return false;
   } else {
-    if (content.value.title === "") {
+    if (record.value.title === "") {
       console.log("Title is Empty");
       return false;
     }
@@ -48,62 +51,62 @@ const useArchiveValidate = () => {
 
   // Validate Description
   if (
-    content.value.description === null ||
-    content.value.description === undefined
+    record.value.description === null ||
+    record.value.description === undefined
   ) {
     console.log("Description is Null or Undefined");
     return false;
   } else {
-    if (content.value.description === "") {
+    if (record.value.description === "") {
       console.log("Description is Empty");
       return false;
     }
   }
 
   // Validate Genres
-  if (content.value.genres === null || content.value.genres === undefined) {
+  if (record.value.genres === null || record.value.genres === undefined) {
     console.log("Genres is Null or Undefined");
     return false;
   } else {
-    if (content.value.genres.length === 0) {
+    if (record.value.genres.length === 0) {
       console.log("Genres is Empty");
       return false;
     }
   }
 
   // Validate Status
-  if (content.value.status === null || content.value.status === undefined) {
+  if (record.value.status === null || record.value.status === undefined) {
     console.log("Status is Null or Undefined");
     return false;
   } else {
-    if (content.value.status === "") {
+    if (record.value.status === "") {
       console.log("Status is Empty");
       return false;
     }
   }
 
   // Validate Rating
-  if (content.value.rating === null || content.value.rating === undefined) {
+  if (record.value.rating === null || record.value.rating === undefined) {
     console.log("Rating is Null or Undefined");
     return false;
   } else {
-    if (content.value.rating < 0 || content.value.rating > 10) {
+    if (record.value.rating < 0 || record.value.rating > 10) {
       console.log("Rating is Empty");
       return false;
     }
   }
 
   // Validate Volumes
-  if (content.value.volumes === null || content.value.volumes === undefined) {
+  if (record.value.volumes === null || record.value.volumes === undefined) {
     console.log("Volumes is Null or Undefined");
     return false;
   } else {
-    if (content.value.volumes.length === 0) {
+    if (record.value.volumes.length === 0) {
       console.log("Volumes is Empty");
       return false;
     } else {
       let valid = true;
-      content.value.volumes.forEach((volume) => {
+      record.value.volumes.forEach((volume) => {
         if (volume.volume === null || volume.volume === undefined) {
           console.log("Volume is Null or Undefined");
           valid = false;
@@ -134,14 +137,14 @@ const useArchiveValidate = () => {
   }
 
   // Validate Notes
-  if (content.value.notes === null || content.value.notes === undefined) {
+  if (record.value.notes === null || record.value.notes === undefined) {
     console.log("Notes is Null or Undefined");
   } else {
-    if (content.value.notes.length === 0) {
+    if (record.value.notes.length === 0) {
       console.log("Notes is Empty");
     } else {
       let valid = true;
-      content.value.notes.forEach((note) => {
+      record.value.notes.forEach((note) => {
         if (note.volume === null || note.volume === undefined) {
           console.log("Volume is Null or Undefined");
           valid = false;
@@ -195,10 +198,10 @@ const useArchiveValidate = () => {
 };
 
 export const useArchiveCreate = async () => {
-  const content = useArchiveContent();
+  const record = useArchiveRecord();
   const valid = useArchiveValidate();
 
-  content.value.time = {
+  record.value.time = {
     first: new Date().toISOString(),
     last: new Date().toISOString(),
   };
@@ -209,15 +212,15 @@ export const useArchiveCreate = async () => {
     const client = useSupabaseClient();
     const user = useSupabaseUser();
 
-    content.value.time = {
+    record.value.time = {
       first: new Date().toISOString(),
       last: new Date().toISOString(),
     };
-    content.value.uid = user.value?.id;
+    record.value.uid = user.value?.id;
 
     const { data, error } = await client
-      .from("content")
-      .insert(content.value)
+      .from("records")
+      .insert([record.value] as never[])
       .select();
 
     if (error) {

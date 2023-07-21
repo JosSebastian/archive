@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 </script>
 
 <template>
   <div class="w-full h-full flex flex-col">
     <span class="w-full h-fit flex justify-between">
       <p>Page: /Archive/Create</p>
-      <!-- <ArchiveCreate /> -->
     </span>
     <div
       class="h-full my-1 py-3 flex justify-center lg:items-center overflow-auto lg:overflow-hidden transition"

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 const statuses = [
   {
     label: "Start",
@@ -18,7 +18,7 @@ const statuses = [
 
 <template>
   <PrimitiveSelect
-    v-model="content.status"
+    v-model="record.status"
     :options="statuses"
     filterable
     clearable

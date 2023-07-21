@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 const cancel = () => {
-  content.value = {};
+  record.value = {};
   navigateTo("/");
 };
 const create = async () => {
   await useArchiveCreate();
-  content.value = {};
+  record.value = {};
 };
 </script>
 

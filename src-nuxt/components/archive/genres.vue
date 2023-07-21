@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const content = useArchiveContent();
+const record = useArchiveRecord();
 const genres = [
   {
     label: "Action",
@@ -62,7 +62,7 @@ const genres = [
 
 <template>
   <PrimitiveSelect
-    v-model="content.genres"
+    v-model="record.genres"
     :options="genres"
     multiple
     filterable

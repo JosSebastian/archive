@@ -25,7 +25,7 @@ export type Time = {
   last: string;
 };
 
-export interface Content {
+export interface Record {
   id?: Id;
 
   medium?: Medium;
@@ -44,3 +44,5 @@ export interface Content {
 
   uid?: string;
 }
+
+export type Records = Record[];
