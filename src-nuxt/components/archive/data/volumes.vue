@@ -8,7 +8,11 @@ const onCreate = () => ({
 </script>
 
 <template>
-  <NDynamicInput v-model:value="record.volumes" :on-create="onCreate">
+  <NDynamicInput
+    v-model:value="record.volumes"
+    :on-create="onCreate"
+    :class="record.volumes?.length > 3 ? 'pr-1.5' : ''"
+  >
     <template #create-button-default> Volume </template>
     <template #default="{ value }">
       <div class="flex gap-2.5">

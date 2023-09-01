@@ -7,7 +7,6 @@ const forward = () => {
 };
 
 const sign = async () => {
-  console.log("sign");
   await useSignOut();
 };
 </script>

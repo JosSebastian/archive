@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { NConfigProvider, NThemeEditor } from "naive-ui";
 const theme = useColorTheme();
+
+onMounted(() => {
+  useArchive();
+});
 </script>
 
 <template>

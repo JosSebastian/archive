@@ -1,10 +1,24 @@
 import { Record, Records } from "../../types/types";
 
-export const useArchiveRecords = async () => {
-  const archive = useState("archive", (): Records => []);
+export const useArchiveRecords = () => {
+  const records = useState("records", (): Records => []);
+  return records;
+};
+
+export const useArchiveRecord = () => {
+  const record = useState("record", (): Record => ({}));
+  return record;
+};
+
+export const useArchive = async () => {
+  const records = useArchiveRecords();
 
   const client = useSupabaseClient();
   const user = useSupabaseUser();
+
+  if (!user.value) {
+    return;
+  }
 
   const { data, error } = await client
     .from("records")
@@ -13,15 +27,45 @@ export const useArchiveRecords = async () => {
   if (error) {
     console.log(error);
   } else {
-    archive.value = data;
+    records.value = data;
   }
-
-  return archive;
 };
 
-export const useArchiveRecord = () => {
-  const record = useState("record", (): Record => ({}));
-  return record;
+export const useArchiveCreate = async () => {
+  const record = useArchiveRecord();
+  const valid = useArchiveValidate();
+
+  record.value.time = {
+    first: new Date().toISOString(),
+    last: new Date().toISOString(),
+  };
+
+  if (!valid) {
+    return;
+  } else {
+    const client = useSupabaseClient();
+    const user = useSupabaseUser();
+
+    record.value.time = {
+      first: new Date().toISOString(),
+      last: new Date().toISOString(),
+    };
+    record.value.uid = user.value?.id;
+
+    const { data, error } = await client
+      .from("records")
+      .insert([record.value] as never[])
+      .select();
+
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(data);
+      const records = useArchiveRecords();
+      records.value.push(data[0]);
+      navigateTo("/");
+    }
+  }
 };
 
 const useArchiveValidate = () => {
@@ -195,39 +239,4 @@ const useArchiveValidate = () => {
   }
 
   return true;
-};
-
-export const useArchiveCreate = async () => {
-  const record = useArchiveRecord();
-  const valid = useArchiveValidate();
-
-  record.value.time = {
-    first: new Date().toISOString(),
-    last: new Date().toISOString(),
-  };
-
-  if (!valid) {
-    return;
-  } else {
-    const client = useSupabaseClient();
-    const user = useSupabaseUser();
-
-    record.value.time = {
-      first: new Date().toISOString(),
-      last: new Date().toISOString(),
-    };
-    record.value.uid = user.value?.id;
-
-    const { data, error } = await client
-      .from("records")
-      .insert([record.value] as never[])
-      .select();
-
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(data);
-      navigateTo("/");
-    }
-  }
 };

@@ -46,7 +46,10 @@ export const useSignOn = async () => {
   } else {
     credentials.value.email = "";
     credentials.value.password = "";
-    navigateTo("/");
+    navigateTo({
+      path: "/authentication",
+      query: { action: "sign-in" },
+    });
   }
 };
 
@@ -82,6 +85,7 @@ export const useSignIn = async () => {
   } else {
     credentials.value.email = "";
     credentials.value.password = "";
+    useArchive();
     navigateTo("/");
   }
 };
@@ -94,6 +98,13 @@ export const useSignOut = async () => {
   if (error) {
     console.log(error);
   } else {
-    navigateTo("/");
+    const records = useArchiveRecords();
+    records.value = [];
+    const record = useArchiveRecord();
+    record.value = {};
+    navigateTo({
+      path: "/authentication",
+      query: { action: "sign-in" },
+    });
   }
 };

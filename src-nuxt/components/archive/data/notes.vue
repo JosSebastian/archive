@@ -11,7 +11,11 @@ const create = () => ({
 </script>
 
 <template>
-  <NDynamicInput v-model:value="record.notes" :on-create="create">
+  <NDynamicInput
+    v-model:value="record.notes"
+    :on-create="create"
+    :class="record.notes?.length > 2 ? 'pr-1.5' : ''"
+  >
     <template #create-button-default> Note </template>
     <template #default="{ value }">
       <div class="flex flex-col gap-2.5">

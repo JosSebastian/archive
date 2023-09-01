@@ -8,24 +8,24 @@ const record = useArchiveRecord();
       <p>Page: /Archive/Create</p>
     </span>
     <div
-      class="h-full my-1 py-3 flex justify-center lg:items-center overflow-auto lg:overflow-hidden transition"
+      class="h-full flex justify-center lg:items-center overflow-auto lg:overflow-hidden transition"
     >
       <div class="flex flex-col lg:flex-row gap-2.5">
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
-          <ArchiveMedium />
-          <ArchiveTitle />
-          <ArchiveDescription />
-          <ArchiveGenres />
-          <ArchiveStatus />
-          <ArchiveRating />
+          <ArchiveDataMedium />
+          <ArchiveDataTitle />
+          <ArchiveDataDescription />
+          <ArchiveDataGenres />
+          <ArchiveDataStatus />
+          <ArchiveDataRating />
         </div>
         <div class="w-96 h-fit flex flex-col gap-2.5 transition">
           <div class="lg:max-h-[122px] overflow-auto">
-            <ArchiveVolumes />
+            <ArchiveDataVolumes />
           </div>
-          <ArchiveNote />
+          <ArchiveDataNote />
           <div class="lg:max-h-[166px] overflow-auto">
-            <ArchiveNotes />
+            <ArchiveDataNotes />
           </div>
         </div>
       </div>

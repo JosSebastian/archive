@@ -2,16 +2,12 @@
 const record = useArchiveRecord();
 const mediums = [
   {
-    label: "Text",
-    value: "Text",
+    label: "WebComic",
+    value: "WebComic",
   },
   {
-    label: "Image",
-    value: "Image",
-  },
-  {
-    label: "Video",
-    value: "Video",
+    label: "WebNovel",
+    value: "WebNovel",
   },
 ];
 </script>
